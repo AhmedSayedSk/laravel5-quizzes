@@ -9,9 +9,9 @@ class QuestionChoice extends Model
 	protected $table = "quiz_question_choices";
 	public $timestamps = false;
 
-	public function quizz()
+	public function question()
     {
-        return $this->belongsTo("App\Models\Quizzes\Question");
+        return $this->belongsTo("App\Models\Quizzes\Question", 'quiz_question_id');
     }
 
 	public function type()

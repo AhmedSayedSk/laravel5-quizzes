@@ -42,4 +42,23 @@ class User extends Authenticatable
     	if($type)
         	return $query->where('type_id', $type->id);
     }
+
+    public function choice_answers()
+    {
+    	return $this->belongsToMany("App\Models\Quizzes\QuestionChoice", "user_quiz_question_choice_answers", "user_id", "choice_id")
+    		->with(['question', 'question.quiz']);
+    }
+
+    public static function get_quizz_ids($user_id)
+    {
+    	$choice_answers = self::find($user_id)->choice_answers;
+    	$quizzes_ids = [];
+
+    	foreach ($choice_answers as $answers) {
+    		$quizzes_ids[] = $answers->question->quiz->id;
+    	}
+
+    	// reset array keys and block repeated values
+    	return array_values(array_unique($quizzes_ids));
+    }
 }

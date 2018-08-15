@@ -9,7 +9,7 @@ class Question extends Model
 	protected $table = "quiz_questions";
 	public $timestamps = false;
 
-	public function quizz()
+	public function quiz()
     {
         return $this->belongsTo("App\Models\Quizzes\Quiz");
     }

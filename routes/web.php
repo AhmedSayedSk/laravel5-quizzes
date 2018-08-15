@@ -16,7 +16,10 @@ Route::get('test', function () {
     $get_names_of_current_language =
     	App\Models\System\Language::find(1)->names;
 
-    return $get_names_of_current_category;
+    $get_current_user_quiz_ids_by_user_id =
+    	App\Models\Users\User::get_quizz_ids(5);
+
+    return $get_current_user_quiz_ids_by_user_id;
 });
 
 Route::get('/', function () {

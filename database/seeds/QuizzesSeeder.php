@@ -15,6 +15,14 @@ class QuizzesSeeder extends Seeder
         $name->save();
 	}
 
+	protected function set_user_choice_answers($choice_id)
+	{
+		$answer = new App\Models\Users\QuizQuestionChoiceAnswer;
+		$answer->user_id = mt_rand(1, App\Models\Users\User::count());
+		$answer->choice_id = $choice_id;
+		$answer->save();
+	}
+
     /**
      * Run the database seeds.
      *
@@ -43,6 +51,7 @@ class QuizzesSeeder extends Seeder
 		            $choice->is_answer = mt_rand(0, 1);
 		            $choice->save();
 		            $this->set_name(3, get_module_id('quiz_question_choices'), $choice->id);
+		            $this->set_user_choice_answers($choice->id);
 	            }
             }
         }
