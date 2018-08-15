@@ -9,6 +9,7 @@
 	    <meta name="csrf-token" content="{!! csrf_token() !!}">
 	    <meta name="author" content="Development: Ahmed Sayed Sk">
 	    <meta name="description" content="pxia2" />
+	    <link rel="icon" href="{{asset('favicon.ico')}}">
 	    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
 	    <title>Admin panel - @yield('title')</title>
 
