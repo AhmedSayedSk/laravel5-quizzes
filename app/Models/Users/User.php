@@ -31,4 +31,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo("App\Models\System\Type");
     }
+
+    public function scopeOfType($query, $type)
+    {
+    	$type = \App\Models\System\Type::where([
+    		'module_id' => get_module_id('users'),
+    		'title' => $type
+    	])->first();
+
+    	if($type)
+        	return $query->where('type_id', $type->id);
+    }
 }

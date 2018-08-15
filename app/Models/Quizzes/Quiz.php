@@ -15,6 +15,16 @@ class Quiz extends Model
 
 	public function category()
     {
-        return $this->belongsTo("App\Models\Quizzes\Category");
+        return $this->belongsTo("App\Models\Quizzes\Category", 'quiz_category_id');
+    }
+
+    public function questions()
+    {
+        return $this->hasMany("App\Models\Quizzes\Question");
+    }
+
+    public function getNamesAttribute()
+    {
+    	return get_module_names(get_module_id('quizzes'), $this->id);
     }
 }

@@ -18,4 +18,14 @@ class Question extends Model
     {
         return $this->belongsTo("App\Models\System\Type");
     }
+
+    public function choices()
+    {
+        return $this->hasMany("App\Models\Quizzes\QuestionChoice", 'quiz_question_id');
+    }
+
+    public function getNamesAttribute()
+    {
+    	return get_module_names(get_module_id('quiz_questions'), $this->id);
+    }
 }
