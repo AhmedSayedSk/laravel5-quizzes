@@ -15,7 +15,7 @@ class Quizzes extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quizz_category_id')->unsigned();
+            $table->integer('quiz_category_id')->unsigned();
             $table->integer('auth_id')->unsigned();
             $table->timestamps();
         });

@@ -15,8 +15,7 @@ class Modules extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            // quizzes, quizz_categories, quizz_questions, quizz_question_choices, languages
+            $table->string('title', 50);
         });
     }
 

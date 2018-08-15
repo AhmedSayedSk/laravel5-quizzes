@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class QuizzCategories extends Migration
+class Languages extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class QuizzCategories extends Migration
      */
     public function up()
     {
-        Schema::create('quizz_categories', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title', 10)->comment('like: ar, en');
         });
     }
 
@@ -25,6 +26,6 @@ class QuizzCategories extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quizz_categories');
+        Schema::dropIfExists('languages');
     }
 }
