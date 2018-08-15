@@ -31,5 +31,9 @@ class ModulesSeeder extends Seeder
         $module = new Module;
         $module->title = "quiz_question_choices";
         $module->save();
+
+        $module = new Module;
+        $module->title = "languages";
+        $module->save();
     }
 }

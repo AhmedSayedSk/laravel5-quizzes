@@ -27,7 +27,7 @@ class QuizzesSeeder extends Seeder
             $quiz->quiz_category_id = mt_rand(1, 5);
             $quiz->auth_id = 1;
             $quiz->save();
-            $this->set_name(3, 2, $quiz->id); // quizzes module
+            $this->set_name(3, get_module_id('quizzes'), $quiz->id);
 
             foreach (range(1, 10) as $j) {
 	            $question = new App\Models\Quizzes\Question;
@@ -35,14 +35,14 @@ class QuizzesSeeder extends Seeder
 	            $question->quiz_id = $quiz->id;
 	            $question->type_id = mt_rand(4, 5);
 	            $question->save();
-	            $this->set_name(7, 4, $question->id); // quiz questions module
+	            $this->set_name(7, get_module_id('quiz_questions'), $question->id);
 
 	            foreach (range(1, 3) as $k) {
 		            $choice = new App\Models\Quizzes\QuestionChoice;
 		            $choice->quiz_question_id = $question->id;
 		            $choice->is_answer = mt_rand(0, 1);
 		            $choice->save();
-		            $this->set_name(3, 5, $choice->id); // quiz questions module
+		            $this->set_name(3, get_module_id('quiz_question_choices'), $choice->id);
 	            }
             }
         }

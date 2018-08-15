@@ -12,12 +12,19 @@ class LangaugesSeeder extends Seeder
      */
     public function run()
     {
-        $lanauge = new Language;
-        $lanauge->title = "ar";
-        $lanauge->save();
+    	$langs = ['ar', 'en'];
 
-        $lanauge = new Language;
-        $lanauge->title = "en";
-        $lanauge->save();
+    	foreach ($langs as $lang) {
+	        $lanauge = new Language;
+	        $lanauge->title = $lang;
+	        $lanauge->save();
+
+	        $name = new App\Models\System\Name;
+	        $name->title = $lang == 'ar' ? 'العربية' : 'English';
+	        $name->module_id = get_module_id('languages');
+	        $name->reference_id = $lanauge->id;
+	        $name->language_id = $lanauge->id;
+	        $name->save();
+    	}
     }
 }
