@@ -61,4 +61,9 @@ class User extends Authenticatable
     	// reset array keys and block repeated values
     	return array_values(array_unique($quizzes_ids));
     }
+
+    public function scopeFindQuizzes($query, $user_id)
+    {
+    	return \App\Models\Quizzes\Quiz::whereIn('id', $this->get_quizz_ids($user_id));
+    }
 }

@@ -17,10 +17,12 @@ class QuizzesSeeder extends Seeder
 
 	protected function set_user_choice_answers($choice_id)
 	{
-		$answer = new App\Models\Users\QuizQuestionChoiceAnswer;
-		$answer->user_id = mt_rand(1, App\Models\Users\User::count());
-		$answer->choice_id = $choice_id;
-		$answer->save();
+		if(mt_rand(0, 1)) {
+			$answer = new App\Models\Users\QuizQuestionChoiceAnswer;
+			$answer->user_id = mt_rand(1, App\Models\Users\User::count());
+			$answer->choice_id = $choice_id;
+			$answer->save();
+		}
 	}
 
     /**

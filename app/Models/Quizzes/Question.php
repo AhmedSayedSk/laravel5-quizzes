@@ -8,6 +8,7 @@ class Question extends Model
 {
 	protected $table = "quiz_questions";
 	public $timestamps = false;
+	public $appends = ['user_choice_ids'];
 
 	public function quiz()
     {
@@ -27,5 +28,10 @@ class Question extends Model
     public function getNamesAttribute()
     {
     	return get_module_names(get_module_id('quiz_questions'), $this->id);
+    }
+
+    public function getUserChoiceIdsAttribute()
+    {
+    	return \App\Models\Users\QuizQuestionChoiceAnswer::whereIn('choice_id', $this->choices->pluck('id'))->pluck('choice_id');
     }
 }
