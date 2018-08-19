@@ -14,7 +14,6 @@
 		$sub_module_count = count($module_name_exploded);
 
 		if($sub_module_count > 1) {
-			$top_module = $module_name_exploded[$sub_module_count - 2];
 			$new_module_name = pathinfo($module_name, PATHINFO_FILENAME);
 			$parent_id = get_module_id($new_module_name);
 			$title = $module_name_exploded[$sub_module_count - 1];
