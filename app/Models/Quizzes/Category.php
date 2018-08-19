@@ -13,6 +13,6 @@ class Category extends Model
 
 	public function getNamesAttribute()
     {
-    	return get_module_names(get_module_id('categories'), $this->id);
+    	return get_module_names(get_module_id('quizzes.categories'), $this->id);
     }
 }

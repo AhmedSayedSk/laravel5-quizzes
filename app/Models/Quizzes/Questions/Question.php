@@ -31,11 +31,11 @@ class Question extends Model
 
     public function getNamesAttribute()
     {
-    	return get_module_names(get_module_id('questions'), $this->id);
+    	return get_module_names(get_module_id('quizzes.questions'), $this->id);
     }
 
     public function getUserChoiceIdsAttribute()
     {
-    	return \App\Models\Users\QuizQuestionChoiceAnswer::whereIn('choice_id', $this->choices->pluck('id'))->pluck('choice_id');
+    	return \App\Models\Users\Answer::whereIn('choice_id', $this->choices->pluck('id'))->pluck('choice_id');
     }
 }

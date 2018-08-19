@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function choice_answers()
     {
-    	return $this->belongsToMany("App\Models\Quizzes\Questions\Choice", "user_answers")
+    	return $this->belongsToMany("App\Models\Quizzes\Questions\Choice", "user_answers", 'auth_id')
     		->with(['question', 'question.quiz']);
     }
 
