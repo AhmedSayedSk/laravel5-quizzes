@@ -4,10 +4,11 @@ namespace App\Models\Users;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -45,7 +46,7 @@ class User extends Authenticatable
 
     public function choice_answers()
     {
-    	return $this->belongsToMany("App\Models\Quizzes\QuestionChoice", "user_quiz_question_choice_answers", "user_id", "choice_id")
+    	return $this->belongsToMany("App\Models\Quizzes\Questions\Choice", "user_answers")
     		->with(['question', 'question.quiz']);
     }
 

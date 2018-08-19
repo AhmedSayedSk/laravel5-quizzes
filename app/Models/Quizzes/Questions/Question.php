@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Models\Quizzes;
+namespace App\Models\Quizzes\Questions;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Question extends Model
 {
-	protected $table = "quiz_questions";
-	public $timestamps = false;
+    use SoftDeletes;
+
+	const CREATED_AT = NULL;
+
+    protected $table = "quiz_questions";
 	public $appends = ['user_choice_ids'];
 
 	public function quiz()
@@ -22,12 +26,12 @@ class Question extends Model
 
     public function choices()
     {
-        return $this->hasMany("App\Models\Quizzes\QuestionChoice", 'quiz_question_id');
+        return $this->hasMany("App\Models\Quizzes\Questions\Choice");
     }
 
     public function getNamesAttribute()
     {
-    	return get_module_names(get_module_id('quiz_questions'), $this->id);
+    	return get_module_names(get_module_id('questions'), $this->id);
     }
 
     public function getUserChoiceIdsAttribute()
