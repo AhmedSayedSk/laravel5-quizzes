@@ -16,14 +16,16 @@ class Users extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('firstname', 50);
-            $table->string('lastname', 50);
+            $table->string('lastname', 50)->nullable();
             $table->string('email')->unique();
+            $table->string('username', 50)->unique()->nullable();
+            $table->string('mobile', 50)->unique()->nullable();
             $table->string('password');
-            $table->string('mobile', 50)->nullable();
-            $table->boolean('gender')->nullable()->comment('0: male, 1:female');
+            $table->boolean('gender')->nullable()->comment('1: male, 0:female');
             $table->integer('type_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

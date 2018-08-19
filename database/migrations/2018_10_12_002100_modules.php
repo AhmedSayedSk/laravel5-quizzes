@@ -16,6 +16,7 @@ class Modules extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 50);
+            $table->integer('parent_id')->unsigned()->nullable();
         });
     }
 

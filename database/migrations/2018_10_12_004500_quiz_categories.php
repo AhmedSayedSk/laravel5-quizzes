@@ -17,6 +17,7 @@ class QuizCategories extends Migration
             $table->increments('id');
             $table->string('icon', 50);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

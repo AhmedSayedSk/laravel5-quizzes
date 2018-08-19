@@ -20,8 +20,8 @@ class Constraints extends Migration
                 ->onDelete('restrict');
         });
 
-        Schema::table('user_quiz_question_choice_answers', function (Blueprint $table) {
-            $table->foreign('user_id')
+        Schema::table('user_answers', function (Blueprint $table) {
+            $table->foreign('auth_id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
@@ -32,11 +32,18 @@ class Constraints extends Migration
                 ->onDelete('cascade');
         });
 
+        Schema::table('modules', function (Blueprint $table) {
+            $table->foreign('parent_id')
+                ->references('id')->on('modules')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
+
         Schema::table('types', function (Blueprint $table) {
             $table->foreign('module_id')
                 ->references('id')->on('modules')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->onDelete('restrict');
         });
 
         Schema::table('names', function (Blueprint $table) {
@@ -52,22 +59,22 @@ class Constraints extends Migration
         });
 
         Schema::table('quizzes', function (Blueprint $table) {
-            $table->foreign('quiz_category_id')
+            $table->foreign('category_id')
                 ->references('id')->on('quiz_categories')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('set null');
 
             $table->foreign('auth_id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('set null');
         });
 
         Schema::table('quiz_questions', function (Blueprint $table) {
             $table->foreign('quiz_id')
                 ->references('id')->on('quizzes')
                 ->onUpdate('cascade')
-                ->onDelete('restrict');
+                ->onDelete('cascade');
 
             $table->foreign('type_id')
                 ->references('id')->on('types')
@@ -76,7 +83,7 @@ class Constraints extends Migration
         });
 
         Schema::table('quiz_question_choices', function (Blueprint $table) {
-            $table->foreign('quiz_question_id')
+            $table->foreign('question_id')
                 ->references('id')->on('quiz_questions')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

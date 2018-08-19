@@ -17,7 +17,6 @@ class Names extends Migration
             $table->increments('id');
             $table->string('title', 150);
             $table->text('description')->nullable();
-            $table->text('answer')->nullable();
             $table->integer('module_id')->unsigned();
             $table->integer('reference_id');
             $table->integer('language_id')->unsigned();

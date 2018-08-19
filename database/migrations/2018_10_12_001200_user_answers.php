@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserQuizQuestionChoiceAnswers extends Migration
+class UserAnswers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class UserQuizQuestionChoiceAnswers extends Migration
      */
     public function up()
     {
-        Schema::create('user_quiz_question_choice_answers', function (Blueprint $table) {
+        Schema::create('user_answers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('choice_id')->unsigned();
+            $table->integer('auth_id')->unsigned();
+            $table->integer('choice_id')->unsigned()->nullable();
             $table->text('answer')->nullable();
-            $table->timestamp('created_at');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
@@ -29,6 +29,6 @@ class UserQuizQuestionChoiceAnswers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_quiz_question_choice_answers');
+        Schema::dropIfExists('user_answers');
     }
 }

@@ -15,8 +15,11 @@ class QuizQuestionChoices extends Migration
     {
         Schema::create('quiz_question_choices', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quiz_question_id')->unsigned();
+            $table->string('image')->nullable();
+            $table->integer('question_id')->unsigned();
             $table->boolean('is_answer');
+            $table->timestamp('updated_at')->useCurrent();
+            $table->softDeletes();
         });
     }
 

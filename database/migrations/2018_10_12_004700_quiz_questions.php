@@ -18,6 +18,8 @@ class QuizQuestions extends Migration
             $table->string('image')->nullable();
             $table->integer('quiz_id')->unsigned();
             $table->integer('type_id')->unsigned();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->softDeletes();
         });
     }
 
