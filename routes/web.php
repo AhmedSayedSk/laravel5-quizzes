@@ -25,6 +25,11 @@ Route::get('test', function () {
     return $get_quizzes_with_his_questions_of_user;
 });
 
+Route::get('test2', function(){
+    $x = get_module_id('system.languages');
+    return $x;
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

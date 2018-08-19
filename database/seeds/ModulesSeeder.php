@@ -23,13 +23,23 @@ class ModulesSeeder extends Seeder
         $module->save();
 
         $module = new Module;
-        $module->title = "types";
+        $module->title = "system";
         $module->parent_id = NULL;
         $module->save();
 
         $module = new Module;
+        $module->title = "types";
+        $module->parent_id = get_module_id('system');
+        $module->save();
+
+        $module = new Module;
         $module->title = "languages";
-        $module->parent_id = NULL;
+        $module->parent_id = get_module_id('system');
+        $module->save();
+
+        $module = new Module;
+        $module->title = "names";
+        $module->parent_id = get_module_id('system');
         $module->save();
 
         $module = new Module;

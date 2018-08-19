@@ -10,6 +10,6 @@ class Language extends Model
 
 	public function getNamesAttribute()
     {
-    	return get_module_names(get_module_id('languages'), $this->id);
+    	return get_module_names(get_module_id('system.languages'), $this->id);
     }
 }
