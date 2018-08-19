@@ -14,27 +14,27 @@ class TypesSeeder extends Seeder
     {
         $type = new Type;
         $type->title = "student";
-        $type->module_id = 1; // users module
+        $type->module_id = get_module_id('users');
         $type->save();
 
         $type = new Type;
         $type->title = "teacher";
-        $type->module_id = 1; // users module
+        $type->module_id = get_module_id('users');
         $type->save();
 
         $type = new Type;
         $type->title = "admin";
-        $type->module_id = 1; // users module
+        $type->module_id = get_module_id('users');
         $type->save();
 
         $type = new Type;
         $type->title = "checkbox";
-        $type->module_id = 4; // quizz questions module
+        $type->module_id = get_module_id('quizzes');
         $type->save();
 
         $type = new Type;
         $type->title = "written";
-        $type->module_id = 4; // quizz questions module
+        $type->module_id = get_module_id('quizzes');
         $type->save();
     }
 }

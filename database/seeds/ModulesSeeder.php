@@ -14,22 +14,27 @@ class ModulesSeeder extends Seeder
     {
         $module = new Module;
         $module->title = "users";
+        $module->parent_id = NULL;
         $module->save();
 
         $module = new Module;
         $module->title = "quizzes";
+        $module->parent_id = NULL;
         $module->save();
 
         $module = new Module;
-        $module->title = "quiz_categories";
+        $module->title = "categories";
+        $module->parent_id = get_module_id('quizzes');
         $module->save();
 
         $module = new Module;
-        $module->title = "quiz_questions";
+        $module->title = "questions";
+        $module->parent_id = get_module_id('quizzes');
         $module->save();
 
         $module = new Module;
-        $module->title = "quiz_question_choices";
+        $module->title = "choices";
+        $module->parent_id = get_module_id('questions');
         $module->save();
 
         $module = new Module;
