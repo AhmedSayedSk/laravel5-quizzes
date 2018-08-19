@@ -21,7 +21,7 @@ class QuizCategoriesSeeder extends Seeder
 
 	        $name = new App\Models\System\Name;
 	        $name->title = $faker->sentence(3);
-	        $name->module_id = get_module_id('categories');
+	        $name->module_id = get_module_id('quizzes.categories');
 	        $name->reference_id = $category->id;
 	        $name->language_id = 2; // en
 	        $name->save();

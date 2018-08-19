@@ -23,6 +23,16 @@ class ModulesSeeder extends Seeder
         $module->save();
 
         $module = new Module;
+        $module->title = "types";
+        $module->parent_id = NULL;
+        $module->save();
+
+        $module = new Module;
+        $module->title = "languages";
+        $module->parent_id = NULL;
+        $module->save();
+
+        $module = new Module;
         $module->title = "categories";
         $module->parent_id = get_module_id('quizzes');
         $module->save();
@@ -34,11 +44,7 @@ class ModulesSeeder extends Seeder
 
         $module = new Module;
         $module->title = "choices";
-        $module->parent_id = get_module_id('questions');
-        $module->save();
-
-        $module = new Module;
-        $module->title = "languages";
+        $module->parent_id = get_module_id('quizzes.questions');
         $module->save();
     }
 }

@@ -32,27 +32,27 @@ class QuizzesSeeder extends Seeder
      */
     public function run()
     {
-        foreach(range(1, 5) as $i) {
+        foreach(range(1, 3) as $i) {
             $quiz = new App\Models\Quizzes\Quiz;
             $quiz->category_id = mt_rand(1, 5);
             $quiz->auth_id = 1;
             $quiz->save();
             $this->set_name(3, get_module_id('quizzes'), $quiz->id);
 
-            foreach (range(1, 10) as $j) {
+            foreach (range(1, 5) as $j) {
 	            $question = new App\Models\Quizzes\Questions\Question;
 	            $question->image = mt_rand(0, 1) ? "image$j" : null;
 	            $question->quiz_id = $quiz->id;
 	            $question->type_id = mt_rand(4, 5);
 	            $question->save();
-	            $this->set_name(7, get_module_id('questions'), $question->id);
+	            $this->set_name(7, get_module_id('quizzes.questions'), $question->id);
 
 	            foreach (range(1, 3) as $k) {
 		            $choice = new App\Models\Quizzes\Questions\Choice;
 		            $choice->question_id = $question->id;
 		            $choice->is_answer = mt_rand(0, 1);
 		            $choice->save();
-		            $this->set_name(3, get_module_id('choices'), $choice->id);
+		            $this->set_name(3, get_module_id('quizzes.questions.choices'), $choice->id);
 		            $this->set_user_choice_answers($choice->id);
 	            }
             }
