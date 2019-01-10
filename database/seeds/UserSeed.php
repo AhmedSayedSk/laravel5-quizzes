@@ -12,8 +12,8 @@ class UserSeed extends Seeder
     public function run()
     {
         $items = [
-            
-            ['id' => 1, 'name' => 'Admin', 'email' => 'admin@admin.com', 'username' => null, 'mobile' => null, 'password' => '$2y$10$FnoJMHgybZpukLAItDogeubuxguHseNvHG9aU3Owt.rRJgKmPw4L.', 'gender' => null, 'role_id' => null, 'remember_token' => '',],
+
+            ['id' => 1, 'name' => 'Admin', 'email' => 'admin@admin.com', 'username' => null, 'mobile' => null, 'password' => \Hash::make('123456'), 'gender' => null, 'role_id' => 1, 'remember_token' => '',],
 
         ];
 
