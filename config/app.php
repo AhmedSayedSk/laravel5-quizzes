@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'Quizzes',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     |
     | This value determines the "environment" your application is currently
     | running in. This may determine how you prefer to configure various
-    | services your application utilizes. Set this in your ".env" file.
+    | services the application utilizes. Set this in your ".env" file.
     |
     */
 
@@ -66,6 +66,22 @@ return [
     */
 
     'timezone' => 'UTC',
+
+        /*
+     |--------------------------------------------------------------------------
+     | Application Date Format
+     |--------------------------------------------------------------------------
+     |
+     | Here you may specify the default date format for your application, which
+     | will be used with date and date-time functions.
+     |
+     */
+
+    'date_format' => 'Y-m-d',
+    'date_format_js' => 'yy-mm-dd',
+    'date_format_moment' => 'YYYY-MM-DD',
+    'time_format_moment' => 'HH:mm:ss',
+    'datetime_format_moment' => 'YYYY-MM-DD HH:mm:ss',
 
     /*
     |--------------------------------------------------------------------------
@@ -150,6 +166,9 @@ return [
         /*
          * Package Service Providers...
          */
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        
 
         /*
          * Application Service Providers...
@@ -208,7 +227,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        
     ],
+
+    
 
 ];
