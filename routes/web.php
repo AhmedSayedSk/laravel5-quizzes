@@ -1,5 +1,4 @@
 <?php
-Route::get('/', function () { return redirect('/admin/home'); });
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -16,9 +15,8 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/home', 'HomeController@index');
-    
+Route::group(['middleware' => ['auth'], 'prefix' => '', 'as' => 'admin.'], function () {
+    Route::get('/', 'HomeController@index');
     Route::resource('users', 'Admin\UsersController');
     Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
     Route::resource('user_answers', 'Admin\UserAnswersController');
@@ -61,8 +59,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('languages_mass_destroy', ['uses' => 'Admin\LanguagesController@massDestroy', 'as' => 'languages.mass_destroy']);
     Route::post('languages_restore/{id}', ['uses' => 'Admin\LanguagesController@restore', 'as' => 'languages.restore']);
     Route::delete('languages_perma_del/{id}', ['uses' => 'Admin\LanguagesController@perma_del', 'as' => 'languages.perma_del']);
-
-
-
- 
 });
