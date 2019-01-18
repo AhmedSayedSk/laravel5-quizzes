@@ -18,12 +18,11 @@ class Quiz extends Model
 
     protected $fillable = ['slug', 'auth_id', 'category_id'];
     protected $hidden = [];
-    
-    
+
+
     public static function boot()
     {
         parent::boot();
-
         Quiz::observe(new \App\Observers\UserActionsObserver);
     }
 
@@ -44,15 +43,24 @@ class Quiz extends Model
     {
         $this->attributes['category_id'] = $input ? $input : null;
     }
-    
+
     public function auth()
     {
         return $this->belongsTo(User::class, 'auth_id');
     }
-    
+
     public function category()
     {
         return $this->belongsTo(QuizCategory::class, 'category_id')->withTrashed();
     }
-    
+
+    public function questions()
+    {
+        return $this->hasMany("App\Models\Quizzes\Questions\Question");
+    }
+
+    public function getNamesAttribute()
+    {
+    	return get_module_names(get_module_id('quizzes'), $this->id);
+    }
 }
