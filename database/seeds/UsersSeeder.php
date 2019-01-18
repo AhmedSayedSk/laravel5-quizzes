@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 
 class UsersSeeder extends Seeder
@@ -13,25 +14,24 @@ class UsersSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $user = new App\Models\Users\User;
-        $user->firstname = "developer";
-        $user->lastname = "test";
-        $user->email = "developer@w.com";
+        $user = new User;
+        $user->name = "Laralight";
+        $user->email = "admin@admin.com";
+        $user->username = "laralight";
         $user->password = bcrypt('123456');
-        $user->type_id = 4;
+        $user->gender = 'male';
+        $user->role_id = 1;
         $user->save();
 
         foreach(range(1, 5) as $i) {
-            $user = new App\Models\Users\User;
-            $user->firstname = $faker->firstname;
-            $user->lastname = mt_rand(0, 1) ? $faker->lastname : null;
-            $user->email = $faker->unique()->safeEmail;
-            $user->username = $faker->username;
-            $user->mobile = mt_rand(0, 1) ? "+20" . rand(1000000000, 1199999999) : null;
-            $user->password = bcrypt('123456');
-            $user->gender = mt_rand(0, 1) ? mt_rand(0, 1) : null;
-            $user->type_id = mt_rand(1, 3);
-            $user->save();
+        		$user = new User;
+		        $user->name = $faker->firstname;
+		        $user->email = $faker->unique()->safeEmail;
+		        $user->username = $faker->username;
+		        $user->password = bcrypt('123456');
+		        $user->mobile = mt_rand(0, 1) ? "+20" . rand(1000000000, 1199999999) : null;
+		        $user->gender = mt_rand(0, 1) ? 'male' : 'female';
+		        $user->save();
         }
     }
 }
