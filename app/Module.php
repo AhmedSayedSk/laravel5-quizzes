@@ -15,14 +15,14 @@ class Module extends Model
 {
     use SoftDeletes;
 
+    public $timestamps = false;
     protected $fillable = ['title', 'parent_id'];
     protected $hidden = [];
-    
-    
+
+
     public static function boot()
     {
         parent::boot();
-
         Module::observe(new \App\Observers\UserActionsObserver);
     }
 
@@ -34,10 +34,9 @@ class Module extends Model
     {
         $this->attributes['parent_id'] = $input ? $input : null;
     }
-    
+
     public function parent()
     {
-        return $this->belongsTo(Module::class, 'parent_id')->withTrashed();
+        return $this->belongsTo(self::class, 'parent_id')->withTrashed();
     }
-    
 }

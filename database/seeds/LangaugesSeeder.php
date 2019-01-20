@@ -1,7 +1,8 @@
 <?php
 
+use App\Language;
+use App\Name;
 use Illuminate\Database\Seeder;
-use App\Models\System\Language;
 
 class LangaugesSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class LangaugesSeeder extends Seeder
 	        $lanauge->title = $lang;
 	        $lanauge->save();
 
-	        $name = new App\Models\System\Name;
+	        $name = new Name;
 	        $name->title = $lang == 'ar' ? 'العربية' : 'English';
 	        $name->module_id = get_module_id('system.languages');
 	        $name->reference_id = $lanauge->id;

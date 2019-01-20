@@ -16,14 +16,13 @@ class UserAnswer extends Model
 {
     use SoftDeletes;
 
+    const UPDATED_AT = null;
     protected $fillable = ['answer', 'auth_id', 'choice_id'];
     protected $hidden = [];
-    
-    
+
     public static function boot()
     {
         parent::boot();
-
         UserAnswer::observe(new \App\Observers\UserActionsObserver);
     }
 
@@ -44,15 +43,15 @@ class UserAnswer extends Model
     {
         $this->attributes['choice_id'] = $input ? $input : null;
     }
-    
+
     public function auth()
     {
         return $this->belongsTo(User::class, 'auth_id');
     }
-    
+
     public function choice()
     {
         return $this->belongsTo(QuizQuestionChoice::class, 'choice_id')->withTrashed();
     }
-    
+
 }

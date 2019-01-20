@@ -1,7 +1,8 @@
 <?php
 
+use App\Category;
+use App\Name;
 use Illuminate\Database\Seeder;
-use App\Models\Quizzes\Category;
 
 class QuizCategoriesSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class QuizCategoriesSeeder extends Seeder
 	        $category->icon = "icon$i";
 	        $category->save();
 
-	        $name = new App\Models\System\Name;
+	        $name = new Name;
 	        $name->title = $faker->sentence(3);
 	        $name->module_id = get_module_id('quizzes.categories');
 	        $name->reference_id = $category->id;

@@ -1,32 +1,202 @@
 <?php
 
 return [
-		'system' => [		'title' => 'System',		'fields' => [		],	],
-		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'username' => 'Username',			'mobile' => 'Mobile',			'password' => 'Password',			'gender' => 'Gender',			'role' => 'Role id',			'remember-token' => 'Remember token',		],	],
-		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [		],	],
-		'time-management' => [		'title' => 'Time management',		'fields' => [		],	],
-		'time-work-types' => [		'title' => 'Work types',		'fields' => [		],	],
-		'time-projects' => [		'title' => 'Projects',		'fields' => [		],	],
-		'time-entries' => [		'title' => 'Time entries',		'fields' => [		],	],
-		'time-reports' => [		'title' => 'Reports',		'fields' => [		],	],
-		'quizzes' => [		'title' => 'Quizzes',		'fields' => [		],	],
-		'modules' => [		'title' => 'Modules',		'fields' => [			'title' => 'Title',			'parent' => 'Parent id',		],	],
-		'types' => [		'title' => 'Types',		'fields' => [			'title' => 'Title',			'module' => 'Module id',		],	],
-		'names' => [		'title' => 'Names',		'fields' => [			'title' => 'Title',			'description' => 'Description',			'module' => 'Module id',			'reference-id' => 'Reference id',			'language' => 'Language id',		],	],
-		'title' => [		'title' => 'Title',		'fields' => [		],	],
-		'languages' => [		'title' => 'Languages',		'fields' => [			'title' => 'Title',			'symbol' => 'Symbol',			'image' => 'Image',		],	],
-		'system' => [		'title' => 'System',		'fields' => [		],	],
-		'quizzes-collection' => [		'title' => 'Quizzes',		'fields' => [		],	],
-		'quiz-categories' => [		'title' => 'Categories',		'fields' => [			'icon' => 'Icon',		],	],
-		'quizzes' => [		'title' => 'Quizzes',		'fields' => [		],	],
-		'user-actions' => [		'title' => 'User actions',		'created_at' => 'Time',		'fields' => [			'user' => 'User',			'action' => 'Action',			'action-model' => 'Action model',			'action-id' => 'Action id',		],	],
-		'quiz-questions' => [		'title' => 'Questions',		'fields' => [			'image' => 'Image',			'quiz' => 'Quiz id',			'type' => 'Type id',		],	],
-		'quizzes' => [		'title' => 'Quizzes',		'fields' => [			'slug' => 'Slug',			'auth' => 'Auth id',			'category' => 'Category id',		],	],
-		'quiz-question-choices' => [		'title' => 'Choices',		'fields' => [			'image' => 'Image',			'question' => 'Question id',			'is-answer' => 'Is answer',		],	],
-		'questions-collection' => [		'title' => 'Questions',		'fields' => [		],	],
-		'users-collection' => [		'title' => 'Users',		'fields' => [		],	],
-		'user-answers' => [		'title' => 'Answers',		'fields' => [			'auth' => 'Auth id',			'choice' => 'Choice id',			'answer' => 'Answer',		],	],
+
+	'system' => [
+		'title' => 'System',
+		'fields' => [
+		],
+	],
+
+	'roles' => [
+		'title' => 'Roles',
+		'fields' => [
+			'title' => 'Title',
+		],
+	],
+
+	'users' => [
+		'title' => 'Users',
+		'fields' => [
+			'name' => 'Name',
+			'email' => 'Email',
+			'username' => 'Username',
+			'mobile' => 'Mobile',
+			'password' => 'Password',
+			'gender' => 'Gender',
+			'role' => 'Role id',
+			'remember-token' => 'Remember token',
+		],
+	],
+
+	'user-actions' => [
+		'title' => 'User actions',
+		'created_at' => 'Time',
+		'fields' => [
+		],
+	],
+
+	'time-management' => [
+		'title' => 'Time management',
+		'fields' => [
+		],
+	],
+
+	'time-work-types' => [
+		'title' => 'Work types',
+		'fields' => [
+		],
+	],
+
+	'time-projects' => [
+		'title' => 'Projects',
+		'fields' => [
+		],
+	],
+
+	'time-entries' => [
+		'title' => 'Time entries',
+		'fields' => [
+		],
+	],
+
+	'time-reports' => [
+		'title' => 'Reports',
+		'fields' => [
+		],
+	],
+
+	'quizzes' => [
+		'title' => 'Quizzes',
+		'fields' => [
+		],
+	],
+
+	'modules' => [
+		'title' => 'Modules',
+		'fields' => [
+			'title' => 'Title',
+			'parent' => 'Parent id',
+		],
+	],
+
+	'types' => [
+		'title' => 'Types',
+		'fields' => [
+			'title' => 'Title',
+			'module' => 'Module id',
+		],
+	],
+
+	'names' => [
+		'title' => 'Names',
+		'fields' => [
+			'title' => 'Title',
+			'description' => 'Description',
+			'module' => 'Module id',
+			'reference-id' => 'Reference id',
+			'language' => 'Language id',
+		],
+	],
+
+	'title' => [
+		'title' => 'Title',
+		'fields' => [
+		],
+	],
+
+	'languages' => [
+		'title' => 'Languages',
+		'fields' => [
+			'title' => 'Title',
+			'symbol' => 'Symbol',
+			'image' => 'Image',
+		],
+	],
+
+	'system' => [
+		'title' => 'System',
+		'fields' => [
+		],
+	],
+
+	'quizzes-collection' => [
+		'title' => 'Quizzes',
+		'fields' => [
+		],
+	],
+
+	'quiz-categories' => [
+		'title' => 'Categories',
+		'fields' => [
+			'icon' => 'Icon',
+		],
+	],
+
+	'quizzes' => [
+		'title' => 'Quizzes',
+		'fields' => [
+		],
+	],
+
+	'user-actions' => [
+		'title' => 'User actions',
+		'created_at' => 'Time',
+		'fields' => [
+			'user' => 'User',
+			'action' => 'Action',
+			'action-model' => 'Action model',
+			'action-id' => 'Action id',
+		],
+	],
+
+	'quiz-questions' => [
+		'title' => 'Questions',
+		'fields' => [
+			'image' => 'Image',
+			'quiz' => 'Quiz id',
+			'type' => 'Type id',
+		],
+	],
+
+	'quizzes' => [
+		'title' => 'Quizzes',
+		'fields' => [
+			'slug' => 'Slug',
+			'auth' => 'Auth id',
+			'category' => 'Category id',
+		],
+	],
+
+	'quiz-question-choices' => [
+		'title' => 'Choices',
+		'fields' => [
+			'image' => 'Image',
+			'question' => 'Question id',
+			'is-answer' => 'Is answer',
+		],
+	],
+
+	'questions-collection' => [
+		'title' => 'Questions',
+		'fields' => [
+		],
+	],
+
+	'users-collection' => [
+		'title' => 'Users',
+		'fields' => [
+		],
+	],
+
+	'user-answers' => [
+		'title' => 'Answers',
+		'fields' => [
+			'auth' => 'Auth id',
+			'choice' => 'Choice id',
+			'answer' => 'Answer',
+		],
+	],
 	'qa_create' => 'Create',
 	'qa_save' => 'Save',
 	'qa_edit' => 'Edit',
@@ -271,5 +441,5 @@ return [
 	'qa_deselect_all' => 'Deselect all',
 	'qa_team-management' => 'Teams',
 	'qa_team-management-singular' => 'Team',
-	'quickadmin_title' => 'quizzes',
+	'quickadmin_title' => 'Quizzes',
 ];

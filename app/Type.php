@@ -15,14 +15,13 @@ class Type extends Model
 {
     use SoftDeletes;
 
+    public $timestamps = false;
     protected $fillable = ['title', 'module_id'];
     protected $hidden = [];
-    
-    
+
     public static function boot()
     {
         parent::boot();
-
         Type::observe(new \App\Observers\UserActionsObserver);
     }
 
@@ -34,10 +33,10 @@ class Type extends Model
     {
         $this->attributes['module_id'] = $input ? $input : null;
     }
-    
+
     public function module()
     {
         return $this->belongsTo(Module::class, 'module_id')->withTrashed();
     }
-    
+
 }

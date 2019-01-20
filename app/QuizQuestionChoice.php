@@ -16,14 +16,13 @@ class QuizQuestionChoice extends Model
 {
     use SoftDeletes;
 
+    const CREATED_AT = NULL;
     protected $fillable = ['image', 'is_answer', 'question_id'];
     protected $hidden = [];
-    
-    
+
     public static function boot()
     {
         parent::boot();
-
         QuizQuestionChoice::observe(new \App\Observers\UserActionsObserver);
     }
 
@@ -35,10 +34,15 @@ class QuizQuestionChoice extends Model
     {
         $this->attributes['question_id'] = $input ? $input : null;
     }
-    
+
     public function question()
     {
         return $this->belongsTo(QuizQuestion::class, 'question_id')->withTrashed();
     }
-    
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class, 'type_id')->withTrashed();
+    }
+
 }

@@ -11,11 +11,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
-        $this->call(QuizCategorySeed::class);
+    		// Static migrations
+        $this->call(ModulesSeeder::class);
+        $this->call(LangaugesSeeder::class);
         $this->call(RoleSeed::class);
-        $this->call(UserSeed::class);
-        $this->call(UserActionSeed::class);
+        $this->call(TypesSeeder::class);
 
+        // Dependable migrations
+        $this->call(UsersSeeder::class);
+        $this->call(QuizCategoriesSeeder::class);
+        $this->call(QuizzesSeeder::class);
+        $this->call(UserActionSeed::class);
     }
 }

@@ -18,10 +18,11 @@ class Name extends Model
 {
     use SoftDeletes;
 
+    public $timestamps = false;
     protected $fillable = ['title', 'description', 'reference_id', 'module_id', 'language_id'];
     protected $hidden = [];
-    
-    
+
+
     public static function boot()
     {
         parent::boot();
@@ -55,15 +56,14 @@ class Name extends Model
     {
         $this->attributes['language_id'] = $input ? $input : null;
     }
-    
+
     public function module()
     {
         return $this->belongsTo(Module::class, 'module_id')->withTrashed();
     }
-    
+
     public function language()
     {
         return $this->belongsTo(Language::class, 'language_id')->withTrashed();
     }
-    
 }
