@@ -60,3 +60,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => '', 'as' => 'admin.'], funct
     Route::post('languages_restore/{id}', ['uses' => 'Admin\LanguagesController@restore', 'as' => 'languages.restore']);
     Route::delete('languages_perma_del/{id}', ['uses' => 'Admin\LanguagesController@perma_del', 'as' => 'languages.perma_del']);
 });
+
+
+
+
+//Routes For  Front-end webapp
+
+$this->get('index', 'testFrontendController@returnview')->name('index');

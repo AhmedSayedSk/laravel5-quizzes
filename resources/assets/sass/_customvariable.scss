@@ -1,0 +1,40 @@
+
+@font-face {
+    font-family: 'robotoRegular';
+    src:    url('fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'robotoMedium';
+    src:    url('fonts/Roboto/Roboto-Medium.ttf');
+}
+@font-face {
+    font-family: 'robotoCondensedBold';
+    src:    url('fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf');
+}
+@font-face {
+    font-family: 'robotoCondensedRegular';
+    src:    url('fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf');
+}
+
+$primary:#5E4131;
+
+$family-primary:"robotoRegular", sans-serif;
+
+$family-medium:"robotoMedium", sans-serif;
+$family-condensed:"robotoCondensedRegular", sans-serif;
+$family-condensedbold:"robotoCondensedBold", sans-serif;
+
+
+$font-size-primary:16px;
+$font-size-little:12px;
+
+$font-size-medium:24px;
+$font-size-large:36px;
+$font-size-huge:60px;
+
+$font-color:#120d09;
+$privileged-color:#5E4131;
+$background-color:#cec6c1;
+$link:#314e5e;
+$complementary:#314e5e;
